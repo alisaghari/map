@@ -1,27 +1,19 @@
 import React from 'react';
-import {connect} from "react-redux";
-import Main from "./pages/Main"
-import { Admin,Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
-connect((state)=>{
-  return{
-  
-  }
-})
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+// import Main from "./pages/Main"
+import { Admin, Resource, ListGuesser, ShowGuesser, EditGuesser } from 'react-admin';
+// import jsonServerProvider from 'ra-data-json-server';
+import dataProvider from "./core/dataProvider";
+
 class App extends React.Component {
   render() {
     return (
       <Admin dataProvider={dataProvider} >
-        <Resource name="Map Mark sample test" list={Main} />
+        {/*<Resource name="Map Mark sample test" list={Main} />*/}
+        <Resource name="user" list={ListGuesser} show={ShowGuesser} edit={EditGuesser} />
+        <Resource name="point" list={ListGuesser} show={ShowGuesser} edit={EditGuesser} />
       </Admin>
     );
   }
 }
 
-
-function mapStateToProps(state) {
-
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
