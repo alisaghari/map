@@ -4,7 +4,6 @@ import {change_name,get_data} from "./../actions/userAction";
 import {add} from "./../actions/tweetAction";
 import axios from "axios";
 import MapMarker from "./../component/MapMarker";
-
 connect((state)=>{
   return{
     user:state.user
@@ -30,8 +29,8 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-
-                        <MapMarker latlng={[{lat: 36.153677, lng: 59.591963},{ lat: 36.153677, lng: 57.681177}, {lat: 36.295481, lng:54.989671 },{ lat: 35.583897, lng: 51.453322},{lat: 35.539211, lng:53.419015 }]} initialCenter={{ lat: 36.153677, lng: 56.181177}} height={"400px"} width={"100%"}></MapMarker>
+        
+         <MapMarker latlng={[{lat: 36.153677, lng: 59.591963},{ lat: 36.153677, lng: 57.681177}, {lat: 36.295481, lng:54.989671 },{ lat: 35.583897, lng: 51.453322},{lat: 35.539211, lng:53.419015 }]} initialCenter={{ lat: 36.153677, lng: 56.181177}} height={"400px"} width={"900px"}></MapMarker>
        
         <div style={{ height:"400px" }}>
 
@@ -50,12 +49,12 @@ class Main extends React.Component {
               <ul>
         {
           this.state.data.map(function(data){
-            return <li key={data.id}>{data.title}</li>;
+            return <li key={"A"+data.id}>{data.title}</li>;
           })
         }
 
         {
-          console.log(this.props.data)
+          console.log(this.props)
         }
         </ul>
       </div>
